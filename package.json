@@ -1,0 +1,32 @@
+{
+  "name": "kala-grunt",
+  "version": "0.0.1",
+  "description": "Grunt compilation of sass and js.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "authors": [
+    "Josh Walker <josh@kalamuna.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-build-control": "^0.6.1",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-prompt": "^1.3.0",
+    "grunt-sass": "latest"
+  },
+  "dependencies": {
+    "bower": "^1.5.2",
+    "load-grunt-tasks": "latest"
+  },
+  "config": {
+    "repo": "kalamuna/kalagrunt",
+    "deploy": "Enter deployment repository here",
+    "branch": "master"
+  }
+}
