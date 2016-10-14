@@ -1,0 +1,42 @@
+@import "bower_components/bootstrap-sass-twbs/assets/stylesheets/_bootstrap.scss";
+
+body {
+  position: relative;
+
+  &::before {
+    content: 'xs';
+    width: 25px;
+    height: 20px;
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    border-top-right-radius: 5px;
+
+    @media(min-width: $screen-sm) {
+      content: 'sm';
+    }
+
+    @media(min-width: $screen-md) {
+      content: 'md';
+    }
+
+    @media(min-width: $screen-lg) {
+      content: 'lg';
+    }
+  }
+}
+
+.bp-calc [class^='col-'] {
+  height: 2em;
+  margin-bottom: 1em;
+  color: #fff;
+  background-color: #aaa;
+  outline: 1px solid black;
+  clear: both;
+}

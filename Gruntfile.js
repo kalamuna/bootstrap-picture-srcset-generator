@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   var themeJs = [
-    'js/scripts.js',
+    './js/scripts.js',
   ];
 
   var config = {
@@ -11,13 +11,23 @@ module.exports = function(grunt) {
     concat: {
       themeJs: {
         files: {
-          'dist/js/main.js': themeJs
+          './dist/js/main.js': themeJs
+        }
+      }
+    },
+    uglify: {
+      options: {
+        sourceMap: false
+      },
+      themeJs: {
+        files: {
+          './dist/js/main.min.js': './dist/js/main.js'
         }
       }
     },
     watch: {
       sass: {
-        files: ['scss/*.scss'],
+        files: ['./scss/*.scss'],
         tasks: ['sass:dev'],
         options: {
           livereload: true
@@ -38,6 +48,7 @@ module.exports = function(grunt) {
         ]
       },
       options: {
+        watchTask: true,
         server: {
           baseDir: "./"
         }
@@ -52,7 +63,7 @@ module.exports = function(grunt) {
           outputStyle: 'nested'
         },
         files: {
-          'dist/css/main.css': 'scss/main.scss',
+          './dist/css/main.css': './scss/main.scss',
         }
       },
       dist: {
@@ -60,7 +71,7 @@ module.exports = function(grunt) {
           compressed: true
         },
         files: {
-          'dist/css/main.css': 'scss/main.scss'
+          './dist/css/main.css': './scss/main.scss'
         }
       }
     }
@@ -69,7 +80,7 @@ module.exports = function(grunt) {
   // Initialize the configuration.
   grunt.initConfig(config);
 
-  grunt.registerTask("prodbuild", ['concat', 'sass:dist']);
-  grunt.registerTask("devbuild", ['concat', 'sass:dev']);
+  grunt.registerTask("prodbuild", ['concat', 'uglify', 'sass:dist']);
+  grunt.registerTask("devbuild", ['concat', 'uglify', 'sass:dev']);
   grunt.registerTask("default", ['devbuild', 'browserSync', 'watch']);
 };
