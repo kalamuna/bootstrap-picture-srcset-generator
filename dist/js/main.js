@@ -11,7 +11,7 @@ $(function() {
   }
 
   function widthAppend(el) {
-    var width = el.width();
+    var width = Math.round(el.outerWidth());
     el.empty().append(width);
   }
 });
