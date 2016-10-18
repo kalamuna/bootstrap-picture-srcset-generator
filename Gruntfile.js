@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   var themeJs = [
-    './js/scripts.js',
+    'js/scripts.js',
   ];
 
   var config = {
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     concat: {
       themeJs: {
         files: {
-          './dist/js/main.js': themeJs
+          'dist/js/main.js': themeJs
         }
       }
     },
@@ -21,13 +21,12 @@ module.exports = function(grunt) {
       },
       themeJs: {
         files: {
-          './dist/js/main.min.js': './dist/js/main.js'
         }
       }
     },
     watch: {
       sass: {
-        files: ['./scss/*.scss'],
+        files: ['./scss/*/**.scss'],
         tasks: ['sass:dev'],
         options: {
           livereload: true

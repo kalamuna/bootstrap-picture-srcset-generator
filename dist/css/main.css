@@ -7268,10 +7268,22 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/* line 3, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+/* line 1, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/browser-width.scss */
+.browser-width {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  background-color: #000;
+  color: #fff; }
+  /* line 9, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/browser-width.scss */
+  .browser-width label {
+    margin-bottom: 0; }
+
+/* line 4, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
 body {
   position: relative; }
-  /* line 6, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+  /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
   body::before {
     content: 'xs';
     width: 25px;
@@ -7287,19 +7299,19 @@ body {
     font-size: 12px;
     border-top-right-radius: 5px; }
     @media (min-width: 768px) {
-      /* line 6, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+      /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
       body::before {
         content: 'sm'; } }
     @media (min-width: 992px) {
-      /* line 6, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+      /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
       body::before {
         content: 'md'; } }
     @media (min-width: 1200px) {
-      /* line 6, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+      /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
       body::before {
         content: 'lg'; } }
 
-/* line 35, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+/* line 36, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
 .bp-calc [class^='col-'] {
   height: 2em;
   margin-bottom: 1em;
@@ -7307,3 +7319,6 @@ body {
   background-color: #aaa;
   outline: 1px solid black;
   clear: both; }
+  /* line 44, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+  .bp-calc [class^='col-'] label {
+    margin-right: 1em; }

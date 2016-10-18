@@ -1,4 +1,5 @@
 @import "bower_components/bootstrap-sass-twbs/assets/stylesheets/_bootstrap.scss";
+@import "components/browser-width";
 
 body {
   position: relative;
@@ -39,4 +40,8 @@ body {
   background-color: #aaa;
   outline: 1px solid black;
   clear: both;
+
+  label {
+    margin-right: 1em;
+  }
 }
