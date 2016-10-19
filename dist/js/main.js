@@ -1,12 +1,17 @@
 $(function() {
   var grid = $('.bp-calc [class^=col-xs-]');
 
-  gridInit();
-  browserWidth();
+  init();
   $(window).on('resize', function() {
+    init()
+  });
+
+  // Init all the things
+  function init() {
     gridInit();
     browserWidth();
-  });
+    noRoom();
+  }
 
   // Init the grid sizes.
   function gridInit() {
@@ -25,5 +30,14 @@ $(function() {
   function browserWidth() {
     var width = Math.round($(window).outerWidth());
     $('.browser-width span').empty().append(width);
+  }
+
+  // Init the grid sizes.
+  function noRoom() {
+    grid.each(function(i, g) {
+      var width = $(g).outerWidth(),
+          noRoom = width < 50;
+      $(this).find('span').toggleClass('no-room', noRoom);
+    });
   }
 });

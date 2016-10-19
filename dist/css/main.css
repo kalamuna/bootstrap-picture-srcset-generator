@@ -7268,22 +7268,22 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-/* line 1, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/browser-width.scss */
+/* line 1, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_browser-width.scss */
 .browser-width {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   padding: 5px;
   background-color: #000;
   color: #fff; }
-  /* line 9, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/browser-width.scss */
+  /* line 9, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_browser-width.scss */
   .browser-width label {
     margin-bottom: 0; }
 
-/* line 4, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+/* line 1, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_breakpoint-indicator.scss */
 body {
   position: relative; }
-  /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+  /* line 4, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_breakpoint-indicator.scss */
   body::before {
     content: 'xs';
     width: 25px;
@@ -7299,26 +7299,32 @@ body {
     font-size: 12px;
     border-top-right-radius: 5px; }
     @media (min-width: 768px) {
-      /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+      /* line 4, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_breakpoint-indicator.scss */
       body::before {
         content: 'sm'; } }
     @media (min-width: 992px) {
-      /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+      /* line 4, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_breakpoint-indicator.scss */
       body::before {
         content: 'md'; } }
     @media (min-width: 1200px) {
-      /* line 7, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+      /* line 4, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_breakpoint-indicator.scss */
       body::before {
         content: 'lg'; } }
 
-/* line 36, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+/* line 1, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_grid-item.scss */
 .bp-calc [class^='col-'] {
   height: 2em;
   margin-bottom: 1em;
   color: #fff;
   background-color: #aaa;
   outline: 1px solid black;
-  clear: both; }
-  /* line 44, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/main.scss */
+  clear: both;
+  white-space: nowrap; }
+  /* line 10, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_grid-item.scss */
   .bp-calc [class^='col-'] label {
-    margin-right: 1em; }
+    margin-right: 0.5em; }
+  /* line 15, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_grid-item.scss */
+  .bp-calc [class^='col-'] span.no-room {
+    position: absolute;
+    right: -25px;
+    color: black; }

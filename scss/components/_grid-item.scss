@@ -1,0 +1,21 @@
+.bp-calc [class^='col-'] {
+  height: 2em;
+  margin-bottom: 1em;
+  color: #fff;
+  background-color: #aaa;
+  outline: 1px solid black;
+  clear: both;
+  white-space: nowrap;
+
+  label {
+    margin-right: 0.5em;
+  }
+
+  span {
+    &.no-room {
+      position: absolute;
+      right: -25px;
+      color: black;
+    }
+  }
+}
