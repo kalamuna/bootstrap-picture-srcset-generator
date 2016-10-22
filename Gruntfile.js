@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
   var themeJs = [
-    'js/scripts.js',
+    'bower_components/jquery/dist/jquery.min.js',
+    'js/scripts.js'
   ];
 
   var config = {
@@ -12,15 +13,6 @@ module.exports = function(grunt) {
       themeJs: {
         files: {
           'dist/js/main.js': themeJs
-        }
-      }
-    },
-    uglify: {
-      options: {
-        sourceMap: false
-      },
-      themeJs: {
-        files: {
         }
       }
     },
@@ -79,7 +71,7 @@ module.exports = function(grunt) {
   // Initialize the configuration.
   grunt.initConfig(config);
 
-  grunt.registerTask("prodbuild", ['concat', 'uglify', 'sass:dist']);
-  grunt.registerTask("devbuild", ['concat', 'uglify', 'sass:dev']);
+  grunt.registerTask("prodbuild", ['concat',  'sass:dist']);
+  grunt.registerTask("devbuild", ['concat', 'sass:dev']);
   grunt.registerTask("default", ['devbuild', 'browserSync', 'watch']);
 };
