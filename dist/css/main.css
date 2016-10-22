@@ -7275,10 +7275,12 @@ button.close {
   right: 0;
   padding: 5px;
   background-color: #000;
-  color: #fff; }
-  /* line 9, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_browser-width.scss */
+  color: #fff;
+  font-size: 10px; }
+  /* line 10, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_browser-width.scss */
   .browser-width label {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-right: 5px; }
 
 /* line 1, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_breakpoint-indicator.scss */
 body {
