@@ -18,9 +18,7 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-prompt": "^1.3.0",
-    "grunt-sass": "latest"
-  },
-  "dependencies": {
+    "grunt-sass": "latest",
     "bower": "^1.5.2",
     "load-grunt-tasks": "latest"
   },
