@@ -58,8 +58,8 @@ function init() {
       .trigger('change');
 
     aspects
-    .on('keydown', onlyNumeric)
-    .on('keyup', aspectsChange);
+      .on('keydown', onlyNumeric)
+      .on('keyup', aspectsChange);
   }
 
   // Only allow numeric values to be input for the aspect ratio inputs.
@@ -83,24 +83,45 @@ function init() {
         aspectH = getAspect('height'),
         aspectDecimal = aspectH/aspectW,
         val = el.val(),
-        bsSize = el.closest('.source-item').data('bs-size'),
+        sourceItem = el.closest('.source-item')
+        bsSize = sourceItem.data('bs-size'),
         width = bsWidths[bsSize][val],
         height = Math.round(width * aspectDecimal),
         bp = bsWidths[bsSize].bp,
         sourceMarkup = getSourceMarkup(width, height, bp);
 
     // Append the new markup to the source holder.
-    el.closest('.source-item').find('.source-holder').text(sourceMarkup).html();
+    el
+      .closest('.source-item')
+        .find('.source-holder')
+        .text(sourceMarkup)
+        .html();
 
     // Also, update the 'all together now' textarea.
     var atn = $('.all-together-now pre'),
         sourceHolders = $('.source-holder'),
         sourceText = [];
-        sourceHolders.each(function(i) {
-          var breakSpace = sourceHolders.length == i + 1 ? '\n' : '\n  ';
-          sourceText.push($(this).text() + breakSpace);
-        });
-    atn.empty().text('<picture> \n  ' + sourceText.join('') + '</picture>').html();
+
+    // Make the largest one the src for the img. The browser will kick in and do
+    // it's thing.
+
+    sourceHolders.each(function(i, sh) {
+      // Add some formatting.
+      var breakSpace = sourceHolders.length == i + 1 ? '\n' : '\n  ';
+      sourceText.push($(this).text() + breakSpace);
+    });
+
+    // Build the img tag--the biggest is always the fallback.
+    var widest = widest || '';
+    if (width > widest) {
+      widest = width;
+      var h2 = height * 2,
+          w2 = width * 2,
+          img = '<img src="' + imgUrl(w2, h2) + '" width="' + w2 + '" height="' + h2 + '">';
+    }
+
+    // Stick it in the DOM.
+    atn.empty().text('<picture> \n  ' + sourceText.join('') + '  ' + img + '\n</picture>').html();
   }
 
   // Generate the markup for the source element.
@@ -115,7 +136,12 @@ function init() {
       }
       bpString += '(' + size + '-width: ' + width + 'px)';
     });
-    return '<source srcset="http://placehold.it/' + w + 'x' + h + ' 1x, http://placehold.it/' + w2 + 'x' + h2 + ' 2x" media="' + bpString + '">';
+    return '<source srcset="' + imgUrl(w, h) + ' 1x, ' + imgUrl(w2, h2) + ' 2x" media="' + bpString + '">';
+  }
+
+  // Format the placeholdit url given the width and height.
+  function imgUrl(w, h) {
+    return 'http://placehold.it/' + w + 'x' + h;
   }
 
   // Return the value input for aspect ratio inputs. If a value doesn't exist
