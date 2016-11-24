@@ -18,6 +18,7 @@ function init() {
     browserWidth();
     noRoom();
     sourceGen();
+    copySource();
   }
 
   // Init the grid sizes.
@@ -30,7 +31,7 @@ function init() {
   // Append the width of the given element as text.
   function widthAppend(el) {
     var width = Math.round(el.outerWidth());
-    el.find('span').empty().append(width);
+    el.find('span').empty().append(width + 'px');
   }
 
   // Display the browser width.
@@ -43,7 +44,7 @@ function init() {
   function noRoom() {
     grid.each(function(i, g) {
       var width = $(g).outerWidth(),
-          noRoom = width < 50;
+          noRoom = width < 70;
       $(this).find('span').toggleClass('no-room', noRoom);
     });
   }
@@ -154,6 +155,26 @@ function init() {
     }
 
     return val;
+  }
+
+  // Allow a user to copy the generated code to the clipboard.
+  function copySource() {
+    $('button[name="copy-source"]').on('click', function() {
+      var code = $(this).siblings('pre').html();
+      console.log(code);
+      $('<textarea class="hidden-input">' + code + '</textarea>')
+        .appendTo('.all-together-now')
+        .val(code);
+      $('.hidden-input').select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Copying text command was ' + msg);
+      } catch (err) {
+        console.log('Oops, unable to copy');
+      }
+    });
   }
 }
 

@@ -7328,5 +7328,6 @@ body {
   /* line 15, /Users/josh/GitHub/image-size-breakpoint-calculator/scss/components/_grid-item.scss */
   .bp-calc [class^='col-'] span.no-room {
     position: absolute;
-    right: -25px;
+    top: 0px;
+    right: -40px;
     color: black; }
