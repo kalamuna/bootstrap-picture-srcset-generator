@@ -1,10 +1,22 @@
 .width-head,
 .height-head {
   display: inline-block;
-  margin-left: 13px;
+  margin-left: 25px;
   font-weight: bold;
 }
 
 .height-head {
   margin-left: 33px;
+}
+
+.source-holder {
+  display: block;
+  min-height: 60px;
+}
+
+.width-height {
+  span {
+    display: inline-block;
+    margin-right: 10px;
+  }
 }

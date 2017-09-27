@@ -7335,9 +7335,19 @@ body {
 .width-head,
 .height-head {
   display: inline-block;
-  margin-left: 13px;
+  margin-left: 25px;
   font-weight: bold; }
 
 /* line 8, scss/components/_styles.scss */
 .height-head {
   margin-left: 33px; }
+
+/* line 12, scss/components/_styles.scss */
+.source-holder {
+  display: block;
+  min-height: 60px; }
+
+/* line 18, scss/components/_styles.scss */
+.width-height span {
+  display: inline-block;
+  margin-right: 10px; }
