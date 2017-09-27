@@ -97,6 +97,24 @@ function init() {
         .text(sourceMarkup)
         .html();
 
+    // Append the width.
+    el
+      .closest('.source-item')
+        .find('.width-height__1x .width')
+          .text(width + 'px')
+        .end()
+        .find('.width-height__2x .width')
+          .text((width * 2) + 'px')
+
+    // Append the height.
+    el
+      .closest('.source-item')
+        .find('.width-height__1x .height')
+          .text(height + 'px')
+        .end()
+        .find('.width-height__2x .height')
+          .text((height * 2) + 'px')
+
     // Also, update the 'all together now' textarea.
     var atn = $('.all-together-now pre'),
         sourceHolders = $('.source-holder'),
